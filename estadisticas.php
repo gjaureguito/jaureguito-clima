@@ -254,6 +254,8 @@ function seccion_ultimo_anio(): string
         . '<div class="widget"><h2 class="sub">En los últimos 12 meses hubo…</h2><div class="cuentas">' . $cuentas . '</div>'
         . '<p class="frase">El día más caluroso fue el ' . $h($e['max_fecha']) . ' con <b>' . dec((float) $e['max']) . '°</b> y el más frío, el '
         . $h($e['min_fecha']) . ' con <b>' . dec((float) $e['min']) . '°</b>.</p></div>'
-        . '<p class="fuente">Del ' . $h($A['desde']) . ' al ' . $h($A['hasta']) . '. Datos medidos en la estación San Juan Aero: SMN, Registro de temperatura (365 días), CC BY 2.5 AR. Se actualiza todos los días.</p>'
+        . '<p class="fuente">Del ' . $h($A['desde']) . ' al ' . $h($A['hasta']) . '. Datos medidos en la estación San Juan Aero: SMN, Registro de temperatura (365 días), CC BY 2.5 AR. Se actualiza todos los días.'
+        . ((int) $k['dias_con_dato'] < 360 ? ' El SMN tiene dato de ' . (int) $k['dias_con_dato'] . ' de esos 365 días; los conteos usan solo los días con dato.' : '')
+        . '</p>'
         . '</section>';
 }

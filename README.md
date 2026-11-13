@@ -66,3 +66,12 @@ O desde GitHub: pestaña Actions → "Análisis diario del clima" → Run workfl
 - `robots.txt` y `sitemap.xml` propios del subdominio. Si se agrega una página, sumarla al sitemap.
 - La foto de portada se sirve en WebP (130 KB en escritorio, 32 KB en celular); `img/san-juan-og.jpg` es la imagen para compartir en redes.
 - `comun.php` tiene el `<head>`, la publicidad, los enlaces a los meses y el pie que comparten todas las páginas; `estilos.css` los estilos.
+
+## Visitas (sistema propio, sin cookies)
+
+- Cada página manda un aviso a `contador.php` (vista, de dónde viene, celular o PC) y otro cuando tocan los botones de la publicidad.
+  No se guarda la IP ni se usan cookies con los visitantes; los robots no se cuentan.
+- Los contadores diarios se guardan en `domains/jaureguitosistemas.com/clima-privado/`, **fuera de `public_html`**:
+  no se ven desde la web y no se borran cuando Hostinger vuelve a desplegar.
+- Panel: `https://clima.jaureguitosistemas.com/panel.php`. La primera vez pide crear la clave.
+  Si se olvida, borrar `clima-privado/panel.json` desde el Administrador de archivos de Hostinger y crearla de nuevo.

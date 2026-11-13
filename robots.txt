@@ -3,5 +3,6 @@ Allow: /
 Disallow: /cache/
 Disallow: /datos/
 Disallow: /analisis/
+Disallow: /contador.php
 
 Sitemap: https://clima.jaureguitosistemas.com/sitemap.xml

@@ -55,7 +55,11 @@ function cabeza(string $titulo, string $descripcion, string $ruta, array $jsonld
 <link rel="preload" as="image" href="/img/san-juan-960.webp" media="(max-width:700px)">
 <link rel="preload" as="image" href="/img/san-juan.webp" media="(min-width:701px)">
 <link rel="stylesheet" href="' . version_archivo('estilos.css') . '">
-' . $ld . '</head>';
+' . $ld . '<script>/* Contador de visitas propio: sin cookies, sin IP (ver contador.php) */
+(function(){var p=location.pathname.replace(/\/$/,"")||"/";function s(o){try{var b=JSON.stringify(o);if(navigator.sendBeacon){navigator.sendBeacon("/contador.php",new Blob([b],{type:"application/json"}))}else{fetch("/contador.php",{method:"POST",body:b,keepalive:true,headers:{"Content-Type":"application/json"}})}}catch(e){}}
+s({t:"vista",p:p,r:document.referrer});
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a");if(!a)return;if(/wa\.me/.test(a.href))s({t:"clic",c:"whatsapp",p:p});else if(/jaureguitosistemas\.com/.test(a.href)&&!/\/\/clima\./.test(a.href))s({t:"clic",c:"sitio",p:p});});})();</script>
+</head>';
 }
 
 function publicidad(): string

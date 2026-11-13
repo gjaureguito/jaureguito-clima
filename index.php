@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 require __DIR__ . '/clima.php';
+require __DIR__ . '/estadisticas.php';
 
 header('Cache-Control: public, max-age=600');
 
@@ -104,6 +105,36 @@ $fechaTexto = ucfirst(dia_semana($fechaHoy)) . ' ' . $fechaHoy->format('j') . ' 
   .btn.wa{background:var(--acc);color:#04202a}
   .btn.ol{border:1px solid var(--acc);color:var(--acc)}
 
+  /* Estadísticas */
+  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:22px}
+  .stat{background:var(--glass2);border-radius:16px;padding:14px 16px;border:1px solid transparent}
+  .stat small{display:block;color:var(--mut);font-size:.78rem}
+  .stat b{display:block;font-size:1.9rem;font-weight:600;letter-spacing:-.5px;margin:2px 0}
+  .stat span{color:var(--mut);font-size:.82rem}
+  .stat.calido{border-color:rgba(255,138,101,.45)}.stat.calido b{color:#ffab91}
+  .stat.frio{border-color:rgba(79,195,247,.45)}.stat.frio b{color:#81d4fa}
+  .sub{font-size:.95rem;font-weight:600;margin:6px 0 10px}
+  .graf-wrap{overflow-x:auto;scrollbar-color:var(--line) transparent}
+  .graf{width:100%;min-width:560px;height:auto;display:block}
+  .graf-grid{stroke:rgba(255,255,255,.08)}
+  .graf-eje{fill:var(--mut);font-size:11px}
+  .graf-mes{fill:var(--mut);font-size:12px}.graf-mes.es-actual{fill:var(--acc);font-weight:700}
+  .graf-actual{fill:rgba(46,230,214,.08);stroke:rgba(46,230,214,.35)}
+  .graf-record{stroke:rgba(255,255,255,.25);stroke-width:1.5;stroke-dasharray:3 3}
+  .graf-record-max{fill:#ff8a65}.graf-record-min{fill:#4fc3f7}
+  .graf-hoy{fill:#fff;stroke:var(--acc);stroke-width:3}
+  .leyenda{display:flex;flex-wrap:wrap;gap:16px;color:var(--mut);font-size:.8rem;margin:8px 0 22px}
+  .leyenda i{display:inline-block;width:12px;height:12px;border-radius:6px;margin-right:6px;vertical-align:-1px}
+  .lg-normal{background:linear-gradient(0deg,#4fc3f7,#ffd54f,#ff8a65)}
+  .lg-record{border:1.5px dashed rgba(255,255,255,.4)}
+  .lg-hoy{background:#fff;border:3px solid var(--acc)}
+  .lluvia{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;align-items:end;height:130px}
+  .ll{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;font-size:.72rem;color:var(--mut)}
+  .ll i{width:70%;max-width:26px;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#4fc3f7,#1e6fa8);display:block}
+  .ll small{margin-top:4px;color:var(--txt)}
+  .ll.es-actual i{background:linear-gradient(180deg,var(--acc),#13897f)}.ll.es-actual span{color:var(--acc);font-weight:700}
+  .fuente{color:var(--mut);font-size:.75rem;margin-top:14px}
+
   footer{color:var(--mut);font-size:.78rem;text-align:center;margin-top:26px;line-height:1.7}
   footer a{color:var(--mut)}
   .err{color:var(--mut)}
@@ -202,9 +233,12 @@ $fechaTexto = ucfirst(dia_semana($fechaHoy)) . ' ' . $fechaHoy->format('j') . ' 
 </section>
 <?php endif; ?>
 
+<?= seccion_estadisticas($met) ?>
+
 <footer>
   <p>Medición actual: <a href="https://www.smn.gob.ar/" rel="noopener">Servicio Meteorológico Nacional</a> (<a href="https://creativecommons.org/licenses/by/2.5/ar/" rel="noopener">CC BY 2.5 AR</a>).
   Pronóstico: datos de <a href="https://www.met.no/en" rel="noopener">MET Norway</a> (<a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>), adaptados a la hora de San Juan.</p>
+  <p>Estadísticas: normales 1991-2020 y récords 1967-2025 de la estación San Juan Aero, <a href="https://www.smn.gob.ar/estadisticas" rel="noopener">SMN</a> (<a href="https://creativecommons.org/licenses/by/2.5/ar/" rel="noopener">CC BY 2.5 AR</a>).</p>
   <p>Foto: Precordillera de San Juan, <a href="<?= e($fotoArchivo) ?>" rel="noopener">WeHaKa / Wikimedia Commons</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>).</p>
   <p>Ante alertas meteorológicas, consultá siempre el sitio oficial del SMN.</p>
   <p>© <?= date('Y') ?> <a href="<?= e($web) ?>">Jaureguito Sistemas</a> · Tulum 50, Rivadavia, San Juan</p>

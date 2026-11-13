@@ -13,6 +13,7 @@ Página de clima de San Juan con publicidad de Jaureguito Sistemas.
 |---|---|
 | `index.php` | La página |
 | `clima.php` | Descarga, caché y procesamiento de datos |
+| `estadisticas.php` | Normales 1991-2020 y récords 1967-2025 del SMN (estación San Juan Aero) |
 | `cache/.htaccess` | Bloquea el acceso público a la caché |
 | `diagnostico.php` | Prueba de conexión: **borralo después de usarlo** |
 

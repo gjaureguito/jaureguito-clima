@@ -189,6 +189,31 @@ $fechaTexto = ucfirst(dia_semana($fechaHoy)) . ' ' . $fechaHoy->format('j') . ' 
   .graf-col.elegido{fill:rgba(255,255,255,.07);stroke:rgba(255,255,255,.35)}
   .ll{cursor:pointer;border-radius:8px}
   .ll.elegido{background:rgba(255,255,255,.07)}
+  /* El último año (análisis diario en Python) */
+  .destacado{font-size:1.15rem;line-height:1.5;margin-bottom:18px}
+  .destacado b{color:#ffab91}
+  .w30{min-width:560px}
+  .w30-barra.calido{fill:#ff8a65}.w30-barra.normal{fill:#2fbf8f}.w30-barra.fresco{fill:#4fc3f7}
+  .w30-barra.activa{stroke:#fff;stroke-width:2}
+  .lg-dia{background:linear-gradient(90deg,#4fc3f7,#2fbf8f,#ff8a65)}
+  .anom-ejes{display:flex;justify-content:space-between;color:var(--mut);font-size:.75rem;margin:6px 0 6px 128px;padding-right:60px}
+  .anom-fila{display:grid;grid-template-columns:118px 1fr 50px;align-items:center;gap:10px;padding:4px 0}
+  .anom-mes{font-size:.88rem;white-space:nowrap}.anom-mes small{color:var(--mut)}.mes-corto{display:none}
+  .anom-pista{position:relative;height:14px;background:rgba(255,255,255,.05);border-radius:7px}
+  .anom-pista::before{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:1px;background:rgba(255,255,255,.35)}
+  .anom-pista i{position:absolute;top:0;bottom:0;width:var(--w);border-radius:7px;animation:crece .9s ease-out both}
+  .anom-pista i.mas{left:50%;background:linear-gradient(90deg,#ffb74d,#ff7043)}
+  .anom-pista i.menos{right:50%;background:linear-gradient(270deg,#81d4fa,#29b6f6)}
+  @keyframes crece{from{width:0}}
+  .anom-val{font-size:.85rem;font-weight:600;text-align:right}.anom-val.mas{color:#ffab91}.anom-val.menos{color:#81d4fa}
+  .cuentas{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:10px}
+  .cuenta{background:var(--glass2);border-radius:14px;padding:12px 14px}
+  .cuenta-ico{font-size:1.3rem}
+  .cuenta b{display:block;font-size:1.8rem;font-weight:600;margin:2px 0}
+  .cuenta span:last-child{color:var(--mut);font-size:.8rem}
+  .anom+.ayuda{margin-top:10px}
+  @media(max-width:560px){.anom-fila{grid-template-columns:58px 1fr 46px}.anom-ejes{margin-left:68px;padding-right:52px}.mes-largo{display:none}.mes-corto{display:inline}}
+  @media (prefers-reduced-motion:reduce){.anom-pista i{animation:none}}
   @media (prefers-reduced-motion:reduce){.termo-aguja{transition:none}.mes-ficha.entra{animation:none}}
 
   footer{color:var(--mut);font-size:.78rem;text-align:center;margin-top:26px;line-height:1.7}
@@ -291,6 +316,8 @@ $fechaTexto = ucfirst(dia_semana($fechaHoy)) . ' ' . $fechaHoy->format('j') . ' 
 <?php endif; ?>
 
 <?= seccion_estadisticas($met) ?>
+
+<?= seccion_ultimo_anio() ?>
 
 <footer>
   <p>Medición actual: <a href="https://www.smn.gob.ar/" rel="noopener">Servicio Meteorológico Nacional</a> (<a href="https://creativecommons.org/licenses/by/2.5/ar/" rel="noopener">CC BY 2.5 AR</a>).

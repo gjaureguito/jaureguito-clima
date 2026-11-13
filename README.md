@@ -42,3 +42,19 @@ Si existe `img/san-juan.jpg`, la página la usa sola. Si la cambiás por otra fo
 ## Si el SMN cambia su formato
 
 Si `diagnostico.php` muestra la línea de San Juan pero el resultado parseado da `NULL`, ajustá la función `parsear_smn()` en `clima.php` según el orden de columnas real. Mientras tanto la página sigue funcionando: solo oculta el bloque del SMN.
+
+## Análisis diario en Python (`analisis/`)
+
+`analisis/calcular.py` (pandas) corre todos los días en GitHub Actions (`.github/workflows/analisis-diario.yml`, 08:17 de San Juan):
+descarga el **Registro de temperatura (365 días)** del SMN, guarda la estación San Juan Aero en `datos/historico_san_juan.csv`
+(el histórico crece día a día, más allá de los 365 días que publica el SMN) y genera `datos/estadisticas.json`,
+que la página muestra en la sección "El último año en San Juan". El commit del workflow dispara el despliegue de Hostinger.
+
+Para correrlo a mano:
+
+```bash
+pip install -r analisis/requirements.txt
+python analisis/calcular.py
+```
+
+O desde GitHub: pestaña Actions → "Análisis diario del clima" → Run workflow.

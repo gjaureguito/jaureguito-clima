@@ -230,3 +230,65 @@
     mostrar(D.mes);
   })();
 })();
+
+/* ---------- 4. Últimos 30 días medidos (datos del análisis diario en Python) ---------- */
+(function () {
+  'use strict';
+  var nodo = document.getElementById('clima-30'), caja = document.getElementById('w-30');
+  if (!nodo || !caja) return;
+  var dias;
+  try { dias = JSON.parse(nodo.textContent); } catch (e) { return; }
+  if (!dias.length) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(tag, a, p) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; }
+  function r(v) { return Math.round(v); }
+  function dec(v) { return (Math.round(v * 10) / 10).toString().replace('.', ','); }
+  var W = 720, H = 240, I = 40, De = 12, Ar = 14, Ab = 30, n = dias.length;
+  var vals = [];
+  dias.forEach(function (d) { [d.max, d.min, d.nmax, d.nmin].forEach(function (v) { if (v !== null) vals.push(v); }); });
+  var lo = Math.floor(Math.min.apply(null, vals) / 5) * 5, hi = Math.ceil(Math.max.apply(null, vals) / 5) * 5;
+  var paso = (W - I - De) / n;
+  var X = function (i) { return I + paso * i + paso / 2; };
+  var Y = function (t) { return Ar + (hi - t) / (hi - lo) * (H - Ar - Ab); };
+  var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, class: 'graf w30', role: 'img', 'aria-label': 'Temperaturas medidas en los últimos 30 días' });
+  for (var t = lo; t <= hi; t += 5) {
+    el('line', { x1: I, x2: W - De, y1: Y(t), y2: Y(t), class: 'graf-grid' }, svg);
+    el('text', { x: I - 6, y: Y(t) + 4, class: 'graf-eje', 'text-anchor': 'end' }, svg).textContent = t + '°';
+  }
+  var banda = 'M' + dias.map(function (d, i) { return X(i) + ',' + Y(d.nmax); }).join(' L') + ' L' +
+    dias.slice().reverse().map(function (d, k) { return X(n - 1 - k) + ',' + Y(d.nmin); }).join(' L') + ' Z';
+  el('path', { d: banda, class: 'sem-banda' }, svg);
+  var barras = [], frase = caja.querySelector('.w30-frase');
+  dias.forEach(function (d, i) {
+    if (d.max === null || d.min === null) return;
+    var calido = d.max > d.nmax + 3, fresco = d.max < d.nmax - 3;
+    var b = el('rect', { x: X(i) - paso * 0.32, width: paso * 0.64, y: Y(d.max), height: Math.max(2, Y(d.min) - Y(d.max)), rx: paso * 0.3,
+      class: 'w30-barra ' + (calido ? 'calido' : fresco ? 'fresco' : 'normal') }, svg);
+    barras.push(b);
+    if (i % 5 === 4 || i === n - 1) el('text', { x: X(i), y: H - 10, class: 'graf-mes', 'text-anchor': 'middle' }, svg).textContent = d.f;
+    var zona = el('rect', { x: X(i) - paso / 2, y: Ar, width: paso, height: H - Ar - Ab, class: 'sem-col', tabindex: 0, role: 'button', 'aria-label': d.f }, svg);
+    function elegir() {
+      barras.forEach(function (x) { x.classList.remove('activa'); }); b.classList.add('activa');
+      var dif = d.max - d.nmax, txt = Math.abs(r(dif)) < 1 ? 'normal para la época' : Math.abs(r(dif)) + '° ' + (dif > 0 ? 'más' : 'menos') + ' que lo normal';
+      frase.innerHTML = '<b>' + d.f + '</b>: máxima ' + dec(d.max) + '° (' + txt + '), mínima ' + dec(d.min) + '°.';
+    }
+    zona.addEventListener('click', elegir); zona.addEventListener('mouseenter', elegir);
+    zona.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); elegir(); } });
+  });
+  caja.querySelector('.w30-graf').appendChild(svg);
+  // las barras crecen desde abajo al aparecer
+  var reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reducido && 'IntersectionObserver' in window) {
+    barras.forEach(function (b) { b.style.transformOrigin = 'center bottom'; b.style.transformBox = 'fill-box'; b.style.transform = 'scaleY(0)'; });
+    var mostrado = false;
+    function mostrar() {
+      if (mostrado) return; mostrado = true; io.disconnect();
+      barras.forEach(function (b, k) { b.style.transition = 'transform .5s ease-out ' + (k * 0.025) + 's'; b.style.transform = 'scaleY(1)'; });
+    }
+    var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) mostrar(); }, { threshold: 0.1 });
+    io.observe(caja);
+    setTimeout(mostrar, 4000); // por si el navegador no avisa: nunca dejar el gráfico vacío
+  }
+  // en celular, mostrar los días más recientes
+  var w = caja.querySelector('.w30-graf'); w.scrollLeft = w.scrollWidth;
+})();

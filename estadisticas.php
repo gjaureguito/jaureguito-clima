@@ -177,3 +177,83 @@ function seccion_estadisticas(?array $met): string
         . '<p class="fuente">Estación San Juan Aero. Normales 1991-2020 y récords 1967-2025: Servicio Meteorológico Nacional.</p>'
         . '</section>';
 }
+
+/* ---------- El último año en San Juan (análisis diario en Python, datos/estadisticas.json) ---------- */
+
+function seccion_ultimo_anio(): string
+{
+    $archivo = __DIR__ . '/datos/estadisticas.json';
+    if (!is_file($archivo)) {
+        return '';
+    }
+    $A = json_decode((string) file_get_contents($archivo), true);
+    if (!is_array($A) || empty($A['ultimo_dia'])) {
+        return '';
+    }
+    $h = fn($v) => htmlspecialchars((string) $v, ENT_QUOTES, 'UTF-8');
+    $u = $A['ultimo_dia'];
+    $c = $u['comparacion'];
+
+    // Frase principal sobre el último día medido
+    $frase = 'El ' . $h($u['fecha']) . ' la máxima fue de <b>' . dec((float) $u['tmax']) . '°</b>';
+    $an = (float) $u['anom_max'];
+    if (abs($an) >= 1) {
+        $frase .= ', ' . abs((int) round($an)) . '° ' . ($an > 0 ? 'más' : 'menos') . ' que lo normal';
+    }
+    if ($c['tipo'] === 'maximo') {
+        $frase .= '. Fue <b>el día más caluroso</b> de los ' . (int) $c['dias'] . ' días anteriores registrados.';
+    } elseif ((int) $c['dias'] >= 14) {
+        $frase .= '. Fue <b>el día más caluroso en ' . (int) $c['dias'] . ' días</b>: no hacía tanto calor desde el '
+            . $h($c['fecha']) . ' (' . dec((float) $c['valor']) . '°).';
+    } else {
+        $frase .= '.';
+    }
+
+    // Mes por mes: barras hacia la derecha (más cálido) o la izquierda (más fresco)
+    $meses = $A['meses'] ?? [];
+    $tope = max(2.0, ...array_map(fn($m) => abs((float) $m['anom']), $meses ?: [['anom' => 2]]));
+    $barras = '';
+    $calidos = 0;
+    foreach ($meses as $m) {
+        $an = (float) $m['anom'];
+        $calidos += $an > 0 ? 1 : 0;
+        $ancho = round(abs($an) / $tope * 50, 1);
+        $barras .= '<div class="anom-fila"><span class="anom-mes"><span class="mes-largo">' . $h(ucfirst($m['mes'])) . '</span><span class="mes-corto">' . $h(ucfirst(mb_substr($m['mes'], 0, 3))) . '</span> <small>' . substr((string) $m['anio'], 2) . '</small></span>'
+            . '<span class="anom-pista"><i class="' . ($an >= 0 ? 'mas' : 'menos') . '" style="--w:' . $ancho . '%"></i></span>'
+            . '<span class="anom-val ' . ($an >= 0 ? 'mas' : 'menos') . '">' . ($an > 0 ? '+' : ($an < 0 ? '−' : '')) . dec(abs($an)) . '°</span></div>';
+    }
+    $resMeses = $meses ? ($calidos . ' de los últimos ' . count($meses) . ' meses fueron más calurosos de lo normal.') : '';
+
+    $k = $A['conteos'];
+    $e = $A['extremos'];
+    $tarj = fn($ico, $num, $txt) => '<div class="cuenta"><span class="cuenta-ico">' . $ico . '</span><b>' . $num . '</b><span>' . $txt . '</span></div>';
+    $cuentas = $tarj('🔥', (int) $k['calor35'], 'días con 35° o más')
+        . $tarj('🥵', (int) $k['calor40'], 'días con 40° o más')
+        . $tarj('🌙', (int) $k['noches20'], 'noches que no bajaron de 20°')
+        . $tarj('❄️', (int) $k['heladas'], 'días con helada (0° o menos)')
+        . $tarj('📆', (int) $k['racha35'], 'días seguidos de 35° o más, la racha más larga');
+
+    $u30 = $A['ultimos30'];
+    $a30 = (float) $u30['anom_max'];
+    $res30 = abs($a30) < 1 ? 'En los últimos 30 días las máximas fueron normales para la época.'
+        : 'En los últimos 30 días las máximas estuvieron, en promedio, <b>' . dec(abs($a30)) . '° ' . ($a30 > 0 ? 'por encima' : 'por debajo') . '</b> de lo normal.';
+
+    $datos30 = json_encode($u30['dias'], JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP);
+
+    return '<section class="card" id="ultimo-anio">'
+        . '<div class="lbl">El último año en San Juan · datos medidos</div>'
+        . '<p class="destacado">' . $frase . '</p>'
+        . '<div class="widget" id="w-30"><h2 class="sub">Los últimos 30 días, día por día</h2><p class="frase">' . $res30 . '</p>'
+        . '<div class="graf-wrap-sem w30-graf"></div>'
+        . '<div class="leyenda"><span><i class="lg-dia"></i>Mínima a máxima de cada día</span><span><i class="lg-banda"></i>Lo normal para la época</span></div>'
+        . '<p class="frase w30-frase">Tocá un día para ver el detalle.</p></div>'
+        . '<script id="clima-30" type="application/json">' . $datos30 . '</script>'
+        . ($meses ? '<div class="widget"><h2 class="sub">¿Cada mes fue más caluroso o más fresco de lo normal?</h2><p class="frase">' . $resMeses . '</p>'
+            . '<div class="anom-ejes"><span>← Más fresco</span><span>Más caluroso →</span></div><div class="anom">' . $barras . '</div>'
+            . '<p class="ayuda">Promedio de las máximas de cada mes comparado con el normal 1991-2020.</p></div>' : '')
+        . '<div class="widget"><h2 class="sub">En los últimos 12 meses hubo…</h2><div class="cuentas">' . $cuentas . '</div>'
+        . '<p class="frase">El día más caluroso fue el ' . $h($e['max_fecha']) . ' con <b>' . dec((float) $e['max']) . '°</b> y el más frío, el '
+        . $h($e['min_fecha']) . ' con <b>' . dec((float) $e['min']) . '°</b>.</p></div>'
+        . '<p class="fuente">Del ' . $h($A['desde']) . ' al ' . $h($A['hasta']) . '. Datos medidos en la estación San Juan Aero: SMN, Registro de temperatura (365 días), CC BY 2.5 AR. Se actualiza todos los días.</p>'
+        . '</section>';
+}

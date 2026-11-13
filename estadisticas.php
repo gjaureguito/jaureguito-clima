@@ -124,7 +124,7 @@ function seccion_estadisticas(?array $met): string
         . '<h2 class="sub">¿Cuánto llueve cada mes? (milímetros)</h2>'
         . '<div class="lluvia">' . $lluvia . '</div>'
         . datos_graficos($met, $mes, $hoyMax)
-        . '<script src="estadisticas.js?v=' . filemtime(__DIR__ . '/estadisticas.js') . '" defer></script>'
+        . '<script src="' . version_archivo('estadisticas.js') . '" defer></script>'
         . '<p class="fuente">Estación San Juan Aero. Normales 1991-2020 y récords 1967-2025: Servicio Meteorológico Nacional.</p>'
         . '</section>';
 }

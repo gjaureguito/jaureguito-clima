@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /cache/
+Disallow: /datos/
+Disallow: /analisis/
+
+Sitemap: https://clima.jaureguitosistemas.com/sitemap.xml

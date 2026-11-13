@@ -58,3 +58,11 @@ python analisis/calcular.py
 ```
 
 O desde GitHub: pestaña Actions → "Análisis diario del clima" → Run workflow.
+
+## SEO
+
+- Cada mes tiene su página (`/enero` … `/diciembre`, generadas por `mes.php` con la regla de `.htaccess`) para búsquedas como "clima en San Juan en julio".
+- La home tiene un H1 de texto, preguntas frecuentes en HTML y datos estructurados (`WebPage`, `FAQPage`); las páginas de meses, `BreadcrumbList` y `FAQPage`.
+- `robots.txt` y `sitemap.xml` propios del subdominio. Si se agrega una página, sumarla al sitemap.
+- La foto de portada se sirve en WebP (130 KB en escritorio, 32 KB en celular); `img/san-juan-og.jpg` es la imagen para compartir en redes.
+- `comun.php` tiene el `<head>`, la publicidad, los enlaces a los meses y el pie que comparten todas las páginas; `estilos.css` los estilos.

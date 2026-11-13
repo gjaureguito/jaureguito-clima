@@ -1,0 +1,319 @@
+{
+ "generado": "2026-11-13T21:52+00:00",
+ "desde": "13 de noviembre de 2025",
+ "hasta": "12 de noviembre de 2026",
+ "ultimo_dia": {
+  "fecha": "12 de noviembre de 2026",
+  "tmax": 40.4,
+  "tmin": 17.0,
+  "anom_max": 8.8,
+  "comparacion": {
+   "tipo": "maximo",
+   "dias": 338
+  }
+ },
+ "ultimos30": {
+  "dias": [
+   {
+    "f": "14/10",
+    "max": 22.0,
+    "min": 10.3,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "15/10",
+    "max": 22.8,
+    "min": 10.6,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "16/10",
+    "max": 24.0,
+    "min": 13.0,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "17/10",
+    "max": 21.5,
+    "min": 13.8,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "18/10",
+    "max": 24.0,
+    "min": 11.4,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "19/10",
+    "max": 26.0,
+    "min": 10.8,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "20/10",
+    "max": 27.0,
+    "min": 14.0,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "21/10",
+    "max": 25.0,
+    "min": 11.0,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "22/10",
+    "max": 28.0,
+    "min": 15.5,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "23/10",
+    "max": 23.0,
+    "min": 13.8,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "24/10",
+    "max": 19.0,
+    "min": 12.0,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "25/10",
+    "max": 23.0,
+    "min": 5.0,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "26/10",
+    "max": 25.3,
+    "min": 9.0,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "27/10",
+    "max": 25.4,
+    "min": 13.2,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "28/10",
+    "max": 29.8,
+    "min": 10.0,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "29/10",
+    "max": 32.5,
+    "min": 12.0,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "30/10",
+    "max": 32.5,
+    "min": 17.2,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "31/10",
+    "max": 32.5,
+    "min": 17.0,
+    "nmax": 27.9,
+    "nmin": 11.3
+   },
+   {
+    "f": "01/11",
+    "max": 30.5,
+    "min": 13.6,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "02/11",
+    "max": 27.9,
+    "min": 14.5,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "03/11",
+    "max": 34.5,
+    "min": 13.9,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "04/11",
+    "max": 26.2,
+    "min": 14.5,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "05/11",
+    "max": 33.0,
+    "min": 10.0,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "06/11",
+    "max": 26.2,
+    "min": 15.7,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "07/11",
+    "max": 23.4,
+    "min": 9.5,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "08/11",
+    "max": 29.0,
+    "min": 6.4,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "09/11",
+    "max": 32.6,
+    "min": 11.0,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "10/11",
+    "max": 30.5,
+    "min": 17.5,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "11/11",
+    "max": 37.0,
+    "min": 14.0,
+    "nmax": 31.6,
+    "nmin": 15.0
+   },
+   {
+    "f": "12/11",
+    "max": 40.4,
+    "min": 17.0,
+    "nmax": 31.6,
+    "nmin": 15.0
+   }
+  ],
+  "anom_max": -1.6
+ },
+ "meses": [
+  {
+   "mes": "diciembre",
+   "anio": 2025,
+   "prom_max": 34.1,
+   "normal_max": 34.4,
+   "anom": -0.3,
+   "dias": 31
+  },
+  {
+   "mes": "marzo",
+   "anio": 2026,
+   "prom_max": 30.9,
+   "normal_max": 30.5,
+   "anom": 0.4,
+   "dias": 31
+  },
+  {
+   "mes": "abril",
+   "anio": 2026,
+   "prom_max": 25.3,
+   "normal_max": 25.3,
+   "anom": 0.0,
+   "dias": 30
+  },
+  {
+   "mes": "mayo",
+   "anio": 2026,
+   "prom_max": 20.2,
+   "normal_max": 20.5,
+   "anom": -0.3,
+   "dias": 31
+  },
+  {
+   "mes": "junio",
+   "anio": 2026,
+   "prom_max": 16.2,
+   "normal_max": 17.3,
+   "anom": -1.1,
+   "dias": 30
+  },
+  {
+   "mes": "julio",
+   "anio": 2026,
+   "prom_max": 16.9,
+   "normal_max": 16.7,
+   "anom": 0.2,
+   "dias": 31
+  },
+  {
+   "mes": "agosto",
+   "anio": 2026,
+   "prom_max": 20.3,
+   "normal_max": 20.3,
+   "anom": -0.0,
+   "dias": 31
+  },
+  {
+   "mes": "septiembre",
+   "anio": 2026,
+   "prom_max": 24.9,
+   "normal_max": 23.8,
+   "anom": 1.1,
+   "dias": 30
+  },
+  {
+   "mes": "octubre",
+   "anio": 2026,
+   "prom_max": 24.7,
+   "normal_max": 27.9,
+   "anom": -3.2,
+   "dias": 31
+  }
+ ],
+ "conteos": {
+  "calor35": 46,
+  "calor40": 2,
+  "noches20": 44,
+  "heladas": 29,
+  "racha35": 7,
+  "dias_con_dato": 339
+ },
+ "extremos": {
+  "max": 40.4,
+  "max_fecha": "12 de noviembre de 2026",
+  "min": -3.8,
+  "min_fecha": "6 de julio de 2026"
+ },
+ "fuente": "SMN, Registro de temperatura (365 días), estación San Juan Aero. CC BY 2.5 AR."
+}

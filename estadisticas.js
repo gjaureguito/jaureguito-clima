@@ -93,78 +93,6 @@
     caja.querySelector('.termo-frase').textContent = frase;
   })();
 
-  /* ---------- 2. La semana que viene vs lo normal ---------- */
-  (function semana() {
-    var caja = document.getElementById('w-semana');
-    if (!caja || !D.dias.length) return;
-    var W = 700, H = 250, I = 44, De = 16, Ar = 26, Ab = 38;
-    var dias = D.dias, n = dias.length;
-    var nMax = dias.map(function (x) { return D.normalMax[x.mes]; });
-    var nMin = dias.map(function (x) { return D.normalMin[x.mes]; });
-    var todos = [].concat(dias.map(function (x) { return x.max; }), dias.map(function (x) { return x.min; }), nMax, nMin);
-    var tLo = Math.floor(Math.min.apply(null, todos) / 5) * 5 - 5, tHi = Math.ceil(Math.max.apply(null, todos) / 5) * 5 + 5;
-    var X = function (i) { return I + 34 + (W - I - De - 68) * (n === 1 ? .5 : i / (n - 1)); };
-    var Y = function (t) { return Ar + (tHi - t) / (tHi - tLo) * (H - Ar - Ab); };
-    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, class: 'graf semana', role: 'img', 'aria-label': 'Temperaturas de los próximos días comparadas con lo normal' });
-    for (var t = tLo; t <= tHi; t += 5) {
-      el('line', { x1: I, x2: W - De, y1: Y(t), y2: Y(t), class: 'graf-grid' }, svg);
-      el('text', { x: I - 8, y: Y(t) + 4, class: 'graf-eje', 'text-anchor': 'end' }, svg).textContent = t + '°';
-    }
-    // franja normal
-    var banda = 'M' + dias.map(function (x, i) { return X(i) + ',' + Y(nMax[i]); }).join(' L') +
-      ' L' + dias.map(function (x, i) { return X(n - 1 - i) + ',' + Y(nMin[n - 1 - i]); }).join(' L') + ' Z';
-    el('path', { d: banda, class: 'sem-banda' }, svg);
-    function linea(vals, cls) {
-      var d = 'M' + vals.map(function (v, i) { return X(i) + ',' + Y(v); }).join(' L');
-      var p = el('path', { d: d, class: cls }, svg);
-      return p;
-    }
-    var lMax = linea(dias.map(function (x) { return x.max; }), 'sem-max');
-    var lMin = linea(dias.map(function (x) { return x.min; }), 'sem-min');
-    var puntos = [], cols = [];
-    dias.forEach(function (x, i) {
-      el('text', { x: X(i), y: H - 12, class: 'graf-mes', 'text-anchor': 'middle' }, svg).textContent = x.corto;
-      var col = el('rect', { x: X(i) - 26, y: Ar - 10, width: 52, height: H - Ar - Ab + 20, rx: 12, class: 'sem-col', tabindex: 0, role: 'button', 'aria-label': x.nombre }, svg);
-      cols.push(col);
-      puntos.push(el('circle', { cx: X(i), cy: Y(x.max), r: 5, class: 'sem-p-max' }, svg));
-      puntos.push(el('circle', { cx: X(i), cy: Y(x.min), r: 5, class: 'sem-p-min' }, svg));
-      var tMax = el('text', { x: X(i), y: Y(x.max) - 11, class: 'sem-val', 'text-anchor': 'middle' }, svg); tMax.textContent = r(x.max) + '°';
-      var tMin = el('text', { x: X(i), y: Y(x.min) + 20, class: 'sem-val sem-val-min', 'text-anchor': 'middle' }, svg); tMin.textContent = r(x.min) + '°';
-      puntos.push(tMax, tMin);
-      function elegir() {
-        cols.forEach(function (c) { c.classList.remove('activa'); });
-        col.classList.add('activa');
-        var dM = x.max - nMax[i], dm = x.min - nMin[i];
-        var txt = '<b>' + x.nombre + '</b>: de día ' + r(x.max) + '° (' + difTexto(dM) + '), de noche ' + r(x.min) + '° (' + difTexto(dm) + ').';
-        if (x.lluvia >= 0.5) txt += ' Puede llover: ' + dec(x.lluvia) + ' mm.';
-        caja.querySelector('.sem-frase').innerHTML = txt;
-      }
-      col.addEventListener('click', elegir);
-      col.addEventListener('mouseenter', elegir);
-      col.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); elegir(); } });
-      if (i === 0) elegir();
-    });
-    caja.querySelector('.sem-graf').appendChild(svg);
-    // resumen de la semana en una frase
-    var prom = dias.reduce(function (a, x, i) { return a + (x.max - nMax[i]); }, 0) / n;
-    var res = prom >= 3 ? 'Se viene una semana más calurosa de lo normal para la época.'
-      : prom <= -3 ? 'Se viene una semana más fresca de lo normal para la época.'
-      : 'Se viene una semana con temperaturas normales para la época.';
-    caja.querySelector('.sem-resumen').textContent = res;
-    // animación: las líneas se dibujan y los puntos aparecen
-    if (!movRed) {
-      [lMax, lMin].forEach(function (p) {
-        var L = p.getTotalLength();
-        p.style.strokeDasharray = L; p.style.strokeDashoffset = L;
-      });
-      puntos.forEach(function (p) { p.style.opacity = 0; });
-      alVer(caja, function () {
-        [lMax, lMin].forEach(function (p) { p.style.transition = 'stroke-dashoffset 1.2s ease-out'; p.style.strokeDashoffset = 0; });
-        puntos.forEach(function (p, k) { p.style.transition = 'opacity .4s ' + (0.15 * Math.floor(k / 4) + .3) + 's'; p.style.opacity = 1; });
-      });
-    }
-  })();
-
   /* ---------- 3. Explorador de meses ---------- */
   (function explorador() {
     var caja = document.getElementById('w-mes');
@@ -196,7 +124,7 @@
         c.classList.toggle('activo', k === m);
         c.setAttribute('aria-pressed', k === m ? 'true' : 'false');
       });
-      // sincroniza el gráfico anual y la lluvia
+      // marca el mes elegido en las barras de lluvia
       document.querySelectorAll('[data-mes-col]').forEach(function (n) {
         n.classList.toggle('elegido', +n.getAttribute('data-mes-col') === m);
       });
@@ -229,66 +157,4 @@
     });
     mostrar(D.mes);
   })();
-})();
-
-/* ---------- 4. Últimos 30 días medidos (datos del análisis diario en Python) ---------- */
-(function () {
-  'use strict';
-  var nodo = document.getElementById('clima-30'), caja = document.getElementById('w-30');
-  if (!nodo || !caja) return;
-  var dias;
-  try { dias = JSON.parse(nodo.textContent); } catch (e) { return; }
-  if (!dias.length) return;
-  var NS = 'http://www.w3.org/2000/svg';
-  function el(tag, a, p) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; }
-  function r(v) { return Math.round(v); }
-  function dec(v) { return (Math.round(v * 10) / 10).toString().replace('.', ','); }
-  var W = 720, H = 240, I = 40, De = 12, Ar = 14, Ab = 30, n = dias.length;
-  var vals = [];
-  dias.forEach(function (d) { [d.max, d.min, d.nmax, d.nmin].forEach(function (v) { if (v !== null) vals.push(v); }); });
-  var lo = Math.floor(Math.min.apply(null, vals) / 5) * 5, hi = Math.ceil(Math.max.apply(null, vals) / 5) * 5;
-  var paso = (W - I - De) / n;
-  var X = function (i) { return I + paso * i + paso / 2; };
-  var Y = function (t) { return Ar + (hi - t) / (hi - lo) * (H - Ar - Ab); };
-  var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, class: 'graf w30', role: 'img', 'aria-label': 'Temperaturas medidas en los últimos 30 días' });
-  for (var t = lo; t <= hi; t += 5) {
-    el('line', { x1: I, x2: W - De, y1: Y(t), y2: Y(t), class: 'graf-grid' }, svg);
-    el('text', { x: I - 6, y: Y(t) + 4, class: 'graf-eje', 'text-anchor': 'end' }, svg).textContent = t + '°';
-  }
-  var banda = 'M' + dias.map(function (d, i) { return X(i) + ',' + Y(d.nmax); }).join(' L') + ' L' +
-    dias.slice().reverse().map(function (d, k) { return X(n - 1 - k) + ',' + Y(d.nmin); }).join(' L') + ' Z';
-  el('path', { d: banda, class: 'sem-banda' }, svg);
-  var barras = [], frase = caja.querySelector('.w30-frase');
-  dias.forEach(function (d, i) {
-    if (d.max === null || d.min === null) return;
-    var calido = d.max > d.nmax + 3, fresco = d.max < d.nmax - 3;
-    var b = el('rect', { x: X(i) - paso * 0.32, width: paso * 0.64, y: Y(d.max), height: Math.max(2, Y(d.min) - Y(d.max)), rx: paso * 0.3,
-      class: 'w30-barra ' + (calido ? 'calido' : fresco ? 'fresco' : 'normal') }, svg);
-    barras.push(b);
-    if (i % 5 === 4 || i === n - 1) el('text', { x: X(i), y: H - 10, class: 'graf-mes', 'text-anchor': 'middle' }, svg).textContent = d.f;
-    var zona = el('rect', { x: X(i) - paso / 2, y: Ar, width: paso, height: H - Ar - Ab, class: 'sem-col', tabindex: 0, role: 'button', 'aria-label': d.f }, svg);
-    function elegir() {
-      barras.forEach(function (x) { x.classList.remove('activa'); }); b.classList.add('activa');
-      var dif = d.max - d.nmax, txt = Math.abs(r(dif)) < 1 ? 'normal para la época' : Math.abs(r(dif)) + '° ' + (dif > 0 ? 'más' : 'menos') + ' que lo normal';
-      frase.innerHTML = '<b>' + d.f + '</b>: máxima ' + dec(d.max) + '° (' + txt + '), mínima ' + dec(d.min) + '°.';
-    }
-    zona.addEventListener('click', elegir); zona.addEventListener('mouseenter', elegir);
-    zona.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); elegir(); } });
-  });
-  caja.querySelector('.w30-graf').appendChild(svg);
-  // las barras crecen desde abajo al aparecer
-  var reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reducido && 'IntersectionObserver' in window) {
-    barras.forEach(function (b) { b.style.transformOrigin = 'center bottom'; b.style.transformBox = 'fill-box'; b.style.transform = 'scaleY(0)'; });
-    var mostrado = false;
-    function mostrar() {
-      if (mostrado) return; mostrado = true; io.disconnect();
-      barras.forEach(function (b, k) { b.style.transition = 'transform .5s ease-out ' + (k * 0.025) + 's'; b.style.transform = 'scaleY(1)'; });
-    }
-    var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) mostrar(); }, { threshold: 0.1 });
-    io.observe(caja);
-    setTimeout(mostrar, 4000); // por si el navegador no avisa: nunca dejar el gráfico vacío
-  }
-  // en celular, mostrar los días más recientes
-  var w = caja.querySelector('.w30-graf'); w.scrollLeft = w.scrollWidth;
 })();

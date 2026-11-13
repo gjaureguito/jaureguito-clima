@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-13T21:52+00:00",
+ "generado": "2026-11-13T22:08+00:00",
  "desde": "13 de noviembre de 2025",
  "hasta": "12 de noviembre de 2026",
  "ultimo_dia": {
@@ -16,217 +16,327 @@
   "dias": [
    {
     "f": "14/10",
+    "dia": 14,
+    "dsem": 2,
     "max": 22.0,
     "min": 10.3,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "fresco"
    },
    {
     "f": "15/10",
+    "dia": 15,
+    "dsem": 3,
     "max": 22.8,
     "min": 10.6,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "fresco"
    },
    {
     "f": "16/10",
+    "dia": 16,
+    "dsem": 4,
     "max": 24.0,
     "min": 13.0,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "fresco"
    },
    {
     "f": "17/10",
+    "dia": 17,
+    "dsem": 5,
     "max": 21.5,
     "min": 13.8,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "fresco"
    },
    {
     "f": "18/10",
+    "dia": 18,
+    "dsem": 6,
     "max": 24.0,
     "min": 11.4,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "fresco"
    },
    {
     "f": "19/10",
+    "dia": 19,
+    "dsem": 0,
     "max": 26.0,
     "min": 10.8,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "normal"
    },
    {
     "f": "20/10",
+    "dia": 20,
+    "dsem": 1,
     "max": 27.0,
     "min": 14.0,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "normal"
    },
    {
     "f": "21/10",
+    "dia": 21,
+    "dsem": 2,
     "max": 25.0,
     "min": 11.0,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "normal"
    },
    {
     "f": "22/10",
+    "dia": 22,
+    "dsem": 3,
     "max": 28.0,
     "min": 15.5,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "normal"
    },
    {
     "f": "23/10",
+    "dia": 23,
+    "dsem": 4,
     "max": 23.0,
     "min": 13.8,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "fresco"
    },
    {
     "f": "24/10",
+    "dia": 24,
+    "dsem": 5,
     "max": 19.0,
     "min": 12.0,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "fresco"
    },
    {
     "f": "25/10",
+    "dia": 25,
+    "dsem": 6,
     "max": 23.0,
     "min": 5.0,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "fresco"
    },
    {
     "f": "26/10",
+    "dia": 26,
+    "dsem": 0,
     "max": 25.3,
     "min": 9.0,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "normal"
    },
    {
     "f": "27/10",
+    "dia": 27,
+    "dsem": 1,
     "max": 25.4,
     "min": 13.2,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "normal"
    },
    {
     "f": "28/10",
+    "dia": 28,
+    "dsem": 2,
     "max": 29.8,
     "min": 10.0,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "normal"
    },
    {
     "f": "29/10",
+    "dia": 29,
+    "dsem": 3,
     "max": 32.5,
     "min": 12.0,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "caluroso"
    },
    {
     "f": "30/10",
+    "dia": 30,
+    "dsem": 4,
     "max": 32.5,
     "min": 17.2,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "caluroso"
    },
    {
     "f": "31/10",
+    "dia": 31,
+    "dsem": 5,
     "max": 32.5,
     "min": 17.0,
     "nmax": 27.9,
-    "nmin": 11.3
+    "nmin": 11.3,
+    "clase": "caluroso"
    },
    {
     "f": "01/11",
+    "dia": 1,
+    "dsem": 6,
     "max": 30.5,
     "min": 13.6,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "normal"
    },
    {
     "f": "02/11",
+    "dia": 2,
+    "dsem": 0,
     "max": 27.9,
     "min": 14.5,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "fresco"
    },
    {
     "f": "03/11",
+    "dia": 3,
+    "dsem": 1,
     "max": 34.5,
     "min": 13.9,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "normal"
    },
    {
     "f": "04/11",
+    "dia": 4,
+    "dsem": 2,
     "max": 26.2,
     "min": 14.5,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "fresco"
    },
    {
     "f": "05/11",
+    "dia": 5,
+    "dsem": 3,
     "max": 33.0,
     "min": 10.0,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "normal"
    },
    {
     "f": "06/11",
+    "dia": 6,
+    "dsem": 4,
     "max": 26.2,
     "min": 15.7,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "fresco"
    },
    {
     "f": "07/11",
+    "dia": 7,
+    "dsem": 5,
     "max": 23.4,
     "min": 9.5,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "fresco"
    },
    {
     "f": "08/11",
+    "dia": 8,
+    "dsem": 6,
     "max": 29.0,
     "min": 6.4,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "normal"
    },
    {
     "f": "09/11",
+    "dia": 9,
+    "dsem": 0,
     "max": 32.6,
     "min": 11.0,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "normal"
    },
    {
     "f": "10/11",
+    "dia": 10,
+    "dsem": 1,
     "max": 30.5,
     "min": 17.5,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "normal"
    },
    {
     "f": "11/11",
+    "dia": 11,
+    "dsem": 2,
     "max": 37.0,
     "min": 14.0,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "caluroso"
    },
    {
     "f": "12/11",
+    "dia": 12,
+    "dsem": 3,
     "max": 40.4,
     "min": 17.0,
     "nmax": 31.6,
-    "nmin": 15.0
+    "nmin": 15.0,
+    "clase": "caluroso"
    }
   ],
-  "anom_max": -1.6
+  "anom_max": -1.6,
+  "cuenta": {
+   "caluroso": 5,
+   "normal": 13,
+   "fresco": 12,
+   "sin_dato": 0
+  }
  },
+ "interanual": {
+  "mes": "noviembre",
+  "anio": 2026,
+  "anio_pasado": 2025,
+  "dias": 0,
+  "listo_el": "18 de noviembre"
+ },
+ "curiosos": [
+  "El cambio más brusco: el 3 de marzo de 2026 la máxima bajó de 40° a 28,5° de un día para el otro (11,5° menos).",
+  "La subida más rápida: el 24 de septiembre de 2026 pasó de 27,5° a 38,3° en un día.",
+  "El día con más diferencia entre la mañana y la tarde fue el 2 de septiembre de 2026: arrancó con 5,8° y llegó a 32,5° (26,7° de diferencia).",
+  "Diciembre de 2025 fue el mes con más días de mucho calor: 16 días con 35° o más.",
+  "El período más largo sin llegar a 35° duró 176 días, del 1 de abril de 2026 al 23 de septiembre de 2026."
+ ],
  "meses": [
   {
    "mes": "diciembre",
@@ -234,6 +344,9 @@
    "prom_max": 34.1,
    "normal_max": 34.4,
    "anom": -0.3,
+   "clase": "normal",
+   "calor35": 16,
+   "heladas": 0,
    "dias": 31
   },
   {
@@ -242,6 +355,9 @@
    "prom_max": 30.9,
    "normal_max": 30.5,
    "anom": 0.4,
+   "clase": "normal",
+   "calor35": 6,
+   "heladas": 0,
    "dias": 31
   },
   {
@@ -250,6 +366,9 @@
    "prom_max": 25.3,
    "normal_max": 25.3,
    "anom": 0.0,
+   "clase": "normal",
+   "calor35": 0,
+   "heladas": 0,
    "dias": 30
   },
   {
@@ -258,6 +377,9 @@
    "prom_max": 20.2,
    "normal_max": 20.5,
    "anom": -0.3,
+   "clase": "normal",
+   "calor35": 0,
+   "heladas": 3,
    "dias": 31
   },
   {
@@ -266,6 +388,9 @@
    "prom_max": 16.2,
    "normal_max": 17.3,
    "anom": -1.1,
+   "clase": "fresco",
+   "calor35": 0,
+   "heladas": 9,
    "dias": 30
   },
   {
@@ -274,6 +399,9 @@
    "prom_max": 16.9,
    "normal_max": 16.7,
    "anom": 0.2,
+   "clase": "normal",
+   "calor35": 0,
+   "heladas": 8,
    "dias": 31
   },
   {
@@ -282,6 +410,9 @@
    "prom_max": 20.3,
    "normal_max": 20.3,
    "anom": -0.0,
+   "clase": "normal",
+   "calor35": 0,
+   "heladas": 5,
    "dias": 31
   },
   {
@@ -290,6 +421,9 @@
    "prom_max": 24.9,
    "normal_max": 23.8,
    "anom": 1.1,
+   "clase": "caluroso",
+   "calor35": 1,
+   "heladas": 4,
    "dias": 30
   },
   {
@@ -298,6 +432,9 @@
    "prom_max": 24.7,
    "normal_max": 27.9,
    "anom": -3.2,
+   "clase": "fresco",
+   "calor35": 0,
+   "heladas": 0,
    "dias": 31
   }
  ],

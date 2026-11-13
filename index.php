@@ -214,6 +214,43 @@ $fechaTexto = ucfirst(dia_semana($fechaHoy)) . ' ' . $fechaHoy->format('j') . ' 
   .anom+.ayuda{margin-top:10px}
   @media(max-width:560px){.anom-fila{grid-template-columns:58px 1fr 46px}.anom-ejes{margin-left:68px;padding-right:52px}.mes-largo{display:none}.mes-corto{display:inline}}
   @media (prefers-reduced-motion:reduce){.anom-pista i{animation:none}}
+  /* Gráficas simples */
+  .dts{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  .dt{border-radius:14px;padding:10px 4px;text-align:center;background:var(--glass2);border-top:4px solid transparent}
+  .dt.caluroso{border-top-color:#ff8a65;background:rgba(255,138,101,.12)}
+  .dt.normal{border-top-color:#2fbf8f}
+  .dt.fresco{border-top-color:#4fc3f7;background:rgba(79,195,247,.12)}
+  .dt-dia{display:block;font-size:.8rem;color:var(--mut)}.dt-ico{display:block;font-size:1.4rem;margin:4px 0}
+  .dt b{display:block;font-size:1.25rem}.dt-et{font-size:1.1rem}
+  .claves{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:.8rem;color:var(--mut)}
+  .claves span[class^=k-]::before{content:"";display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+  .k-calor::before{background:#ff8a65}.k-normal::before{background:#2fbf8f}.k-frio::before{background:#4fc3f7}
+  .t-calor{color:#ffab91!important}.t-normal{color:#6ee7b7!important}.t-frio{color:#81d4fa!important}
+  .bc{display:grid;grid-template-columns:150px 1fr 60px;align-items:center;gap:12px;margin:12px 0}
+  .bc-et{font-weight:600}.bc-et small{display:block;font-weight:400;color:var(--mut);font-size:.75rem}
+  .bc-pista{height:26px;background:rgba(255,255,255,.06);border-radius:13px;overflow:hidden}
+  .bc-pista i{display:block;height:100%;width:var(--w);border-radius:13px;animation:crece 1s ease-out both}
+  .bc-pista i.gris{background:linear-gradient(90deg,#64748b,#94a3b8)}
+  .bc-pista i.calor{background:linear-gradient(90deg,#ffb74d,#ff7043)}
+  .bc-pista i.frio{background:linear-gradient(90deg,#81d4fa,#29b6f6)}
+  .bc b{font-size:1.3rem;text-align:right}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  .vs div{background:var(--glass2);border-radius:12px;padding:10px 12px}.vs small{display:block;color:var(--mut);font-size:.78rem}.vs b{font-size:1.2rem}
+  .cals{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
+  .cal{border-radius:10px;padding:6px 2px;text-align:center;color:#07142b;animation:aparece .5s ease-out both}
+  .cal small{display:block;font-size:.68rem;opacity:.75}.cal b{font-size:.95rem}
+  .cal.caluroso{background:#ff8a65}.cal.normal{background:#2fbf8f}.cal.fresco{background:#4fc3f7}.cal.sin_dato{background:rgba(255,255,255,.1);color:var(--mut)}
+  @keyframes aparece{from{opacity:0;transform:scale(.8)}}
+  .mts{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px}
+  .mt{border-radius:14px;padding:10px 12px;background:var(--glass2);border-left:5px solid transparent}
+  .mt.caluroso{border-left-color:#ff8a65}.mt.normal{border-left-color:#2fbf8f}.mt.fresco{border-left-color:#4fc3f7}
+  .mt-mes{display:block;font-size:.8rem;color:var(--mut)}.mt-ico{font-size:1.3rem}.mt b{display:block;font-size:.95rem;margin:2px 0}.mt small{color:var(--mut);font-size:.75rem}
+  .widget>.frase{margin-bottom:12px}
+  .claves+.ayuda{margin-top:6px}
+  .curiosos{list-style:none;display:grid;gap:10px}
+  .curiosos li{background:var(--glass2);border-radius:12px;padding:12px 14px;line-height:1.5}
+  @media(max-width:560px){.dts{grid-template-columns:repeat(4,1fr)}.cals{grid-template-columns:repeat(6,1fr)}.bc{grid-template-columns:1fr 56px;gap:4px 10px}.bc-et{grid-column:1/-1}.vs{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){.bc-pista i,.cal{animation:none}}
   @media (prefers-reduced-motion:reduce){.termo-aguja{transition:none}.mes-ficha.entra{animation:none}}
 
   footer{color:var(--mut);font-size:.78rem;text-align:center;margin-top:26px;line-height:1.7}
@@ -317,7 +354,7 @@ $fechaTexto = ucfirst(dia_semana($fechaHoy)) . ' ' . $fechaHoy->format('j') . ' 
 
 <?= seccion_estadisticas($met) ?>
 
-<?= seccion_ultimo_anio() ?>
+<?= seccion_ultimo_anio($met) ?>
 
 <footer>
   <p>Medición actual: <a href="https://www.smn.gob.ar/" rel="noopener">Servicio Meteorológico Nacional</a> (<a href="https://creativecommons.org/licenses/by/2.5/ar/" rel="noopener">CC BY 2.5 AR</a>).

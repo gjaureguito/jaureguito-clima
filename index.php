@@ -155,7 +155,7 @@ $fechaTexto = ucfirst(dia_semana($fechaHoy)) . ' ' . $fechaHoy->format('j') . ' 
     <?php if ($a): ?>
       <h1 class="temp"><?= t($a['temp']) ?>°</h1>
       <div class="desc"><?= $iconoActual ?> <?= e($textoActual) ?></div>
-      <div class="mm">Máx <?= t($hoy['max'] ?? null) ?>° · Mín <?= t($hoy['min'] ?? null) ?>°</div>
+      <div class="mm">Máx <?= t($hoy['max'] ?? null) ?>° · Mín <?= t($a['min_noche'] ?? $hoy['min'] ?? null) ?>°</div>
       <div class="chips">
         <span class="chip">💧 Humedad <b><?= t($a['humedad']) ?>%</b></span>
         <span class="chip">🌬️ Viento <b><?= t($a['viento']) ?> km/h <?= e($a['rumbo']) ?></b></span>

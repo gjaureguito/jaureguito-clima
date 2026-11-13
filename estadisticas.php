@@ -60,7 +60,7 @@ function grafico_anual(int $mes, ?float $hoyMax, ?float $hoyMin): string
         $s .= '<rect x="' . round($cx - 9, 1) . '" y="' . round($y1, 1) . '" width="18" height="' . round($y2 - $y1, 1) . '" rx="9" fill="url(#gNormal)" opacity="' . ($actual ? '1' : '.8') . '"><title>' . ucfirst(MESES[$m]) . ': máxima normal ' . dec(NORMAL_MAX[$m]) . '°, mínima normal ' . dec(NORMAL_MIN[$m]) . '°</title></rect>';
         $s .= '<text x="' . $cx . '" y="' . ($H - 12) . '" class="graf-mes' . ($actual ? ' es-actual' : '') . '" text-anchor="middle">' . MESES_CORTOS[$m] . '</text>';
         if ($actual) {
-            foreach ([[$hoyMax, 'Máxima'], [$hoyMin, 'Mínima']] as [$v, $nom]) {
+            foreach ([[$hoyMax, 'Máxima'], [$hoyMin, 'Mínima de esta noche']] as [$v, $nom]) {
                 if ($v !== null) {
                     $s .= '<circle cx="' . $cx . '" cy="' . round($y($v), 1) . '" r="6" class="graf-hoy"><title>' . $nom . ' pronosticada hoy: ' . round($v) . '°</title></circle>';
                 }
@@ -76,7 +76,8 @@ function seccion_estadisticas(?array $met): string
     $mes = (int) (new DateTimeImmutable('now', $tz))->format('n') - 1;
     $hoy = $met['dias'][0] ?? null;
     $hoyMax = isset($hoy['max']) ? (float) $hoy['max'] : null;
-    $hoyMin = isset($hoy['min']) ? (float) $hoy['min'] : null;
+    $hoyMin = isset($met['actual']['min_noche']) ? (float) $met['actual']['min_noche']
+        : (isset($hoy['min']) ? (float) $hoy['min'] : null);
     $nombreMes = MESES[$mes];
     $lluviaAnual = array_sum(NORMAL_LLUVIA);
 
@@ -90,7 +91,7 @@ function seccion_estadisticas(?array $met): string
     if ($hoyMin !== null) {
         $d = $hoyMin - NORMAL_MIN[$mes];
         $clase = $d >= 1 ? 'calido' : ($d <= -1 ? 'frio' : '');
-        $tarjetas .= '<div class="stat ' . $clase . '"><small>Mínima de hoy</small><b>' . diferencia($d) . '</b>'
+        $tarjetas .= '<div class="stat ' . $clase . '"><small>Mínima de esta noche</small><b>' . diferencia($d) . '</b>'
             . '<span>' . round($hoyMin) . '° contra ' . dec(NORMAL_MIN[$mes]) . '° normal en ' . $nombreMes . '</span></div>';
     }
     $falta = $hoyMax !== null ? RECORD_MAX[$mes] - $hoyMax : null;

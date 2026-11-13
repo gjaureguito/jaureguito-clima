@@ -197,6 +197,11 @@ function procesar_met(array $series): array
         unset($dia['dist']);
     }
 
+    // Mínima de esta noche: la más baja de las próximas 24 h (la del día de hoy, a la tarde,
+    // solo vería las horas que quedan y no la madrugada)
+    $temps = array_filter(array_column($horas, 'temp'), fn($v) => $v !== null);
+    $actual['min_noche'] = $temps ? min($temps) : null;
+
     return ['actual' => $actual, 'horas' => $horas, 'dias' => $dias, 'obtenido' => time()];
 }
 

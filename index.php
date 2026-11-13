@@ -137,6 +137,7 @@ $fechaTexto = ucfirst(dia_semana($fechaHoy)) . ' ' . $fechaHoy->format('j') . ' 
 
   footer{color:var(--mut);font-size:.78rem;text-align:center;margin-top:26px;line-height:1.7}
   footer a{color:var(--mut)}
+  footer .aviso{max-width:640px;margin:8px auto 0}
   .err{color:var(--mut)}
   @media(max-width:560px){.dia{grid-template-columns:82px 30px 1fr}.dia .tx{display:none}.rango{grid-column:3}.hero{min-height:min(80vh,680px)}}
 </style>
@@ -239,8 +240,9 @@ $fechaTexto = ucfirst(dia_semana($fechaHoy)) . ' ' . $fechaHoy->format('j') . ' 
   <p>Medición actual: <a href="https://www.smn.gob.ar/" rel="noopener">Servicio Meteorológico Nacional</a> (<a href="https://creativecommons.org/licenses/by/2.5/ar/" rel="noopener">CC BY 2.5 AR</a>).
   Pronóstico: datos de <a href="https://www.met.no/en" rel="noopener">MET Norway</a> (<a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>), adaptados a la hora de San Juan.</p>
   <p>Estadísticas: normales 1991-2020 y récords 1967-2025 de la estación San Juan Aero, <a href="https://www.smn.gob.ar/estadisticas" rel="noopener">SMN</a> (<a href="https://creativecommons.org/licenses/by/2.5/ar/" rel="noopener">CC BY 2.5 AR</a>).</p>
-  <p>Foto: Precordillera de San Juan, <a href="<?= e($fotoArchivo) ?>" rel="noopener">WeHaKa / Wikimedia Commons</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>).</p>
-  <p>Ante alertas meteorológicas, consultá siempre el sitio oficial del SMN.</p>
+  <p>Foto: Precordillera de San Juan, <a href="<?= e($fotoArchivo) ?>" rel="noopener">WeHaKa / Wikimedia Commons</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>), con filtro de color.</p>
+  <p class="aviso">La información de esta página es orientativa y puede no coincidir con las condiciones reales. Para decisiones importantes y ante alertas meteorológicas, consultá siempre el <a href="https://www.smn.gob.ar/" rel="noopener">sitio oficial del SMN</a>.</p>
+  <p class="aviso">Sitio independiente de Jaureguito Sistemas, sin vinculación con el Servicio Meteorológico Nacional ni con MET Norway. Esta página no usa cookies ni recopila datos personales.</p>
   <p>© <?= date('Y') ?> <a href="<?= e($web) ?>">Jaureguito Sistemas</a> · Tulum 50, Rivadavia, San Juan</p>
 </footer>
 

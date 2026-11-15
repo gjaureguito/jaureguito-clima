@@ -1,31 +1,21 @@
 {
- "generado": "2026-11-14T17:10+00:00",
- "desde": "14 de noviembre de 2025",
- "hasta": "13 de noviembre de 2026",
+ "generado": "2026-11-15T17:44+00:00",
+ "desde": "15 de noviembre de 2025",
+ "hasta": "14 de noviembre de 2026",
  "ultimo_dia": {
-  "fecha": "13 de noviembre de 2026",
-  "tmax": 40.2,
-  "tmin": 23.5,
-  "anom_max": 8.6,
+  "fecha": "14 de noviembre de 2026",
+  "tmax": 33.6,
+  "tmin": 21.8,
+  "anom_max": 2.0,
   "comparacion": {
    "tipo": "desde",
-   "fecha": "12 de noviembre de 2026",
-   "valor": 40.4,
+   "fecha": "13 de noviembre de 2026",
+   "valor": 40.2,
    "dias": 1
   }
  },
  "ultimos30": {
   "dias": [
-   {
-    "f": "15/10",
-    "dia": 15,
-    "dsem": 3,
-    "max": 22.8,
-    "min": 10.6,
-    "nmax": 27.9,
-    "nmin": 11.3,
-    "clase": "fresco"
-   },
    {
     "f": "16/10",
     "dia": 16,
@@ -315,13 +305,23 @@
     "nmax": 31.6,
     "nmin": 15.0,
     "clase": "caluroso"
+   },
+   {
+    "f": "14/11",
+    "dia": 14,
+    "dsem": 5,
+    "max": 33.6,
+    "min": 21.8,
+    "nmax": 31.6,
+    "nmin": 15.0,
+    "clase": "normal"
    }
   ],
-  "anom_max": -1.1,
+  "anom_max": -0.8,
   "cuenta": {
    "caluroso": 6,
-   "normal": 13,
-   "fresco": 11,
+   "normal": 14,
+   "fresco": 10,
    "sin_dato": 0
   }
  },
@@ -329,7 +329,7 @@
   "mes": "noviembre",
   "anio": 2026,
   "anio_pasado": 2025,
-  "dias": 1,
+  "dias": 2,
   "listo_el": "18 de noviembre"
  },
  "curiosos": [
@@ -443,7 +443,7 @@
  "conteos": {
   "calor35": 47,
   "calor40": 3,
-  "noches20": 45,
+  "noches20": 46,
   "heladas": 29,
   "racha35": 7,
   "dias_con_dato": 339

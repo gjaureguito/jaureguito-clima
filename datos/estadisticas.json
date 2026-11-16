@@ -1,31 +1,21 @@
 {
- "generado": "2026-11-15T17:44+00:00",
- "desde": "15 de noviembre de 2025",
- "hasta": "14 de noviembre de 2026",
+ "generado": "2026-11-16T21:04+00:00",
+ "desde": "16 de noviembre de 2025",
+ "hasta": "15 de noviembre de 2026",
  "ultimo_dia": {
-  "fecha": "14 de noviembre de 2026",
-  "tmax": 33.6,
-  "tmin": 21.8,
-  "anom_max": 2.0,
+  "fecha": "15 de noviembre de 2026",
+  "tmax": 34.3,
+  "tmin": 19.5,
+  "anom_max": 2.7,
   "comparacion": {
    "tipo": "desde",
    "fecha": "13 de noviembre de 2026",
    "valor": 40.2,
-   "dias": 1
+   "dias": 2
   }
  },
  "ultimos30": {
   "dias": [
-   {
-    "f": "16/10",
-    "dia": 16,
-    "dsem": 4,
-    "max": 24.0,
-    "min": 13.0,
-    "nmax": 27.9,
-    "nmin": 11.3,
-    "clase": "fresco"
-   },
    {
     "f": "17/10",
     "dia": 17,
@@ -315,13 +305,23 @@
     "nmax": 31.6,
     "nmin": 15.0,
     "clase": "normal"
+   },
+   {
+    "f": "15/11",
+    "dia": 15,
+    "dsem": 6,
+    "max": 34.3,
+    "min": 19.5,
+    "nmax": 31.6,
+    "nmin": 15.0,
+    "clase": "normal"
    }
   ],
-  "anom_max": -0.8,
+  "anom_max": -0.6,
   "cuenta": {
    "caluroso": 6,
-   "normal": 14,
-   "fresco": 10,
+   "normal": 15,
+   "fresco": 9,
    "sin_dato": 0
   }
  },
@@ -329,7 +329,7 @@
   "mes": "noviembre",
   "anio": 2026,
   "anio_pasado": 2025,
-  "dias": 2,
+  "dias": 3,
   "listo_el": "18 de noviembre"
  },
  "curiosos": [

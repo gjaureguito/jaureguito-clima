@@ -1,41 +1,21 @@
 {
- "generado": "2026-11-16T21:04+00:00",
- "desde": "16 de noviembre de 2025",
- "hasta": "15 de noviembre de 2026",
+ "generado": "2026-11-18T19:24+00:00",
+ "desde": "18 de noviembre de 2025",
+ "hasta": "17 de noviembre de 2026",
  "ultimo_dia": {
-  "fecha": "15 de noviembre de 2026",
-  "tmax": 34.3,
-  "tmin": 19.5,
-  "anom_max": 2.7,
+  "fecha": "17 de noviembre de 2026",
+  "tmax": 31.5,
+  "tmin": 15.7,
+  "anom_max": -0.1,
   "comparacion": {
    "tipo": "desde",
-   "fecha": "13 de noviembre de 2026",
-   "valor": 40.2,
-   "dias": 2
+   "fecha": "16 de noviembre de 2026",
+   "valor": 37.0,
+   "dias": 1
   }
  },
  "ultimos30": {
   "dias": [
-   {
-    "f": "17/10",
-    "dia": 17,
-    "dsem": 5,
-    "max": 21.5,
-    "min": 13.8,
-    "nmax": 27.9,
-    "nmin": 11.3,
-    "clase": "fresco"
-   },
-   {
-    "f": "18/10",
-    "dia": 18,
-    "dsem": 6,
-    "max": 24.0,
-    "min": 11.4,
-    "nmax": 27.9,
-    "nmin": 11.3,
-    "clase": "fresco"
-   },
    {
     "f": "19/10",
     "dia": 19,
@@ -315,13 +295,33 @@
     "nmax": 31.6,
     "nmin": 15.0,
     "clase": "normal"
+   },
+   {
+    "f": "16/11",
+    "dia": 16,
+    "dsem": 0,
+    "max": 37.0,
+    "min": 20.0,
+    "nmax": 31.6,
+    "nmin": 15.0,
+    "clase": "caluroso"
+   },
+   {
+    "f": "17/11",
+    "dia": 17,
+    "dsem": 1,
+    "max": 31.5,
+    "min": 15.7,
+    "nmax": 31.6,
+    "nmin": 15.0,
+    "clase": "normal"
    }
   ],
-  "anom_max": -0.6,
+  "anom_max": -0.1,
   "cuenta": {
-   "caluroso": 6,
-   "normal": 15,
-   "fresco": 9,
+   "caluroso": 7,
+   "normal": 16,
+   "fresco": 7,
    "sin_dato": 0
   }
  },
@@ -329,8 +329,21 @@
   "mes": "noviembre",
   "anio": 2026,
   "anio_pasado": 2025,
-  "dias": 3,
-  "listo_el": "18 de noviembre"
+  "dias": 5,
+  "desde_dia": 13,
+  "hasta_dia": 17,
+  "este": {
+   "prom_max": 35.3,
+   "prom_min": 20.1,
+   "calor35": 2,
+   "max": 40.2
+  },
+  "pasado": {
+   "prom_max": 32.3,
+   "prom_min": 16.3,
+   "calor35": 0,
+   "max": 34.5
+  }
  },
  "curiosos": [
   "El cambio más brusco: el 3 de marzo de 2026 la máxima bajó de 40° a 28,5° de un día para el otro (11,5° menos).",
@@ -441,9 +454,9 @@
   }
  ],
  "conteos": {
-  "calor35": 47,
+  "calor35": 48,
   "calor40": 3,
-  "noches20": 46,
+  "noches20": 47,
   "heladas": 29,
   "racha35": 7,
   "dias_con_dato": 339

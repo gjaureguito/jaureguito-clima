@@ -1,31 +1,21 @@
 {
- "generado": "2026-11-18T19:24+00:00",
- "desde": "18 de noviembre de 2025",
- "hasta": "17 de noviembre de 2026",
+ "generado": "2026-11-19T19:30+00:00",
+ "desde": "19 de noviembre de 2025",
+ "hasta": "18 de noviembre de 2026",
  "ultimo_dia": {
-  "fecha": "17 de noviembre de 2026",
-  "tmax": 31.5,
-  "tmin": 15.7,
-  "anom_max": -0.1,
+  "fecha": "18 de noviembre de 2026",
+  "tmax": 28.3,
+  "tmin": 15.5,
+  "anom_max": -3.3,
   "comparacion": {
    "tipo": "desde",
-   "fecha": "16 de noviembre de 2026",
-   "valor": 37.0,
+   "fecha": "17 de noviembre de 2026",
+   "valor": 31.5,
    "dias": 1
   }
  },
  "ultimos30": {
   "dias": [
-   {
-    "f": "19/10",
-    "dia": 19,
-    "dsem": 0,
-    "max": 26.0,
-    "min": 10.8,
-    "nmax": 27.9,
-    "nmin": 11.3,
-    "clase": "normal"
-   },
    {
     "f": "20/10",
     "dia": 20,
@@ -315,13 +305,23 @@
     "nmax": 31.6,
     "nmin": 15.0,
     "clase": "normal"
+   },
+   {
+    "f": "18/11",
+    "dia": 18,
+    "dsem": 2,
+    "max": 28.3,
+    "min": 15.5,
+    "nmax": 31.6,
+    "nmin": 15.0,
+    "clase": "fresco"
    }
   ],
-  "anom_max": -0.1,
+  "anom_max": -0.2,
   "cuenta": {
    "caluroso": 7,
-   "normal": 16,
-   "fresco": 7,
+   "normal": 15,
+   "fresco": 8,
    "sin_dato": 0
   }
  },
@@ -329,20 +329,20 @@
   "mes": "noviembre",
   "anio": 2026,
   "anio_pasado": 2025,
-  "dias": 5,
+  "dias": 6,
   "desde_dia": 13,
-  "hasta_dia": 17,
+  "hasta_dia": 18,
   "este": {
-   "prom_max": 35.3,
-   "prom_min": 20.1,
+   "prom_max": 34.2,
+   "prom_min": 19.3,
    "calor35": 2,
    "max": 40.2
   },
   "pasado": {
-   "prom_max": 32.3,
-   "prom_min": 16.3,
-   "calor35": 0,
-   "max": 34.5
+   "prom_max": 33.1,
+   "prom_min": 16.0,
+   "calor35": 1,
+   "max": 37.5
   }
  },
  "curiosos": [
@@ -454,7 +454,7 @@
   }
  ],
  "conteos": {
-  "calor35": 48,
+  "calor35": 47,
   "calor40": 3,
   "noches20": 47,
   "heladas": 29,

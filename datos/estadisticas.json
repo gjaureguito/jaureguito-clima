@@ -1,31 +1,21 @@
 {
- "generado": "2026-11-20T19:07+00:00",
- "desde": "20 de noviembre de 2025",
- "hasta": "19 de noviembre de 2026",
+ "generado": "2026-11-21T17:59+00:00",
+ "desde": "21 de noviembre de 2025",
+ "hasta": "20 de noviembre de 2026",
  "ultimo_dia": {
-  "fecha": "19 de noviembre de 2026",
-  "tmax": 34.5,
-  "tmin": 16.5,
-  "anom_max": 2.9,
+  "fecha": "20 de noviembre de 2026",
+  "tmax": 28.5,
+  "tmin": 17.5,
+  "anom_max": -3.1,
   "comparacion": {
    "tipo": "desde",
-   "fecha": "16 de noviembre de 2026",
-   "valor": 37.0,
-   "dias": 3
+   "fecha": "19 de noviembre de 2026",
+   "valor": 34.5,
+   "dias": 1
   }
  },
  "ultimos30": {
   "dias": [
-   {
-    "f": "21/10",
-    "dia": 21,
-    "dsem": 2,
-    "max": 25.0,
-    "min": 11.0,
-    "nmax": 27.9,
-    "nmin": 11.3,
-    "clase": "normal"
-   },
    {
     "f": "22/10",
     "dia": 22,
@@ -315,13 +305,23 @@
     "nmax": 31.6,
     "nmin": 15.0,
     "clase": "normal"
+   },
+   {
+    "f": "20/11",
+    "dia": 20,
+    "dsem": 4,
+    "max": 28.5,
+    "min": 17.5,
+    "nmax": 31.6,
+    "nmin": 15.0,
+    "clase": "fresco"
    }
   ],
   "anom_max": -0.0,
   "cuenta": {
    "caluroso": 7,
-   "normal": 15,
-   "fresco": 8,
+   "normal": 14,
+   "fresco": 9,
    "sin_dato": 0
   }
  },
@@ -329,19 +329,19 @@
   "mes": "noviembre",
   "anio": 2026,
   "anio_pasado": 2025,
-  "dias": 7,
+  "dias": 8,
   "desde_dia": 13,
-  "hasta_dia": 19,
+  "hasta_dia": 20,
   "este": {
-   "prom_max": 34.2,
-   "prom_min": 18.9,
+   "prom_max": 33.5,
+   "prom_min": 18.8,
    "calor35": 2,
    "max": 40.2
   },
   "pasado": {
-   "prom_max": 33.2,
-   "prom_min": 16.7,
-   "calor35": 1,
+   "prom_max": 33.7,
+   "prom_min": 16.6,
+   "calor35": 2,
    "max": 37.5
   }
  },
@@ -451,10 +451,21 @@
    "calor35": 0,
    "heladas": 0,
    "dias": 31
+  },
+  {
+   "mes": "noviembre",
+   "anio": 2026,
+   "prom_max": 32.0,
+   "normal_max": 31.6,
+   "anom": 0.4,
+   "clase": "normal",
+   "calor35": 4,
+   "heladas": 0,
+   "dias": 20
   }
  ],
  "conteos": {
-  "calor35": 47,
+  "calor35": 46,
   "calor40": 3,
   "noches20": 46,
   "heladas": 29,

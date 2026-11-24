@@ -1,31 +1,21 @@
 {
- "generado": "2026-11-23T22:41+00:00",
- "desde": "23 de noviembre de 2025",
- "hasta": "22 de noviembre de 2026",
+ "generado": "2026-11-24T21:14+00:00",
+ "desde": "24 de noviembre de 2025",
+ "hasta": "23 de noviembre de 2026",
  "ultimo_dia": {
-  "fecha": "22 de noviembre de 2026",
-  "tmax": 31.2,
-  "tmin": 15.0,
-  "anom_max": -0.4,
+  "fecha": "23 de noviembre de 2026",
+  "tmax": 33.2,
+  "tmin": 15.8,
+  "anom_max": 1.6,
   "comparacion": {
    "tipo": "desde",
    "fecha": "21 de noviembre de 2026",
    "valor": 36.5,
-   "dias": 1
+   "dias": 2
   }
  },
  "ultimos30": {
   "dias": [
-   {
-    "f": "24/10",
-    "dia": 24,
-    "dsem": 5,
-    "max": 19.0,
-    "min": 12.0,
-    "nmax": 27.9,
-    "nmin": 11.3,
-    "clase": "fresco"
-   },
    {
     "f": "25/10",
     "dia": 25,
@@ -315,13 +305,23 @@
     "nmax": 31.6,
     "nmin": 15.0,
     "clase": "normal"
+   },
+   {
+    "f": "23/11",
+    "dia": 23,
+    "dsem": 0,
+    "max": 33.2,
+    "min": 15.8,
+    "nmax": 31.6,
+    "nmin": 15.0,
+    "clase": "normal"
    }
   ],
-  "anom_max": 0.3,
+  "anom_max": 0.6,
   "cuenta": {
    "caluroso": 8,
-   "normal": 14,
-   "fresco": 8,
+   "normal": 15,
+   "fresco": 7,
    "sin_dato": 0
   }
  },
@@ -329,19 +329,19 @@
   "mes": "noviembre",
   "anio": 2026,
   "anio_pasado": 2025,
-  "dias": 10,
+  "dias": 11,
   "desde_dia": 13,
-  "hasta_dia": 22,
+  "hasta_dia": 23,
   "este": {
-   "prom_max": 33.6,
-   "prom_min": 18.1,
+   "prom_max": 33.5,
+   "prom_min": 17.9,
    "calor35": 3,
    "max": 40.2
   },
   "pasado": {
-   "prom_max": 33.4,
-   "prom_min": 16.0,
-   "calor35": 2,
+   "prom_max": 33.6,
+   "prom_min": 16.2,
+   "calor35": 3,
    "max": 37.5
   }
  },
@@ -455,17 +455,17 @@
   {
    "mes": "noviembre",
    "anio": 2026,
-   "prom_max": 32.1,
+   "prom_max": 32.2,
    "normal_max": 31.6,
-   "anom": 0.5,
+   "anom": 0.6,
    "clase": "normal",
    "calor35": 5,
    "heladas": 0,
-   "dias": 22
+   "dias": 23
   }
  ],
  "conteos": {
-  "calor35": 47,
+  "calor35": 46,
   "calor40": 3,
   "noches20": 46,
   "heladas": 29,

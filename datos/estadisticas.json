@@ -1,31 +1,21 @@
 {
- "generado": "2026-11-26T20:12+00:00",
- "desde": "26 de noviembre de 2025",
- "hasta": "25 de noviembre de 2026",
+ "generado": "2026-11-27T19:59+00:00",
+ "desde": "27 de noviembre de 2025",
+ "hasta": "26 de noviembre de 2026",
  "ultimo_dia": {
-  "fecha": "25 de noviembre de 2026",
-  "tmax": 31.7,
-  "tmin": 13.5,
-  "anom_max": 0.1,
+  "fecha": "26 de noviembre de 2026",
+  "tmax": 30.0,
+  "tmin": 15.5,
+  "anom_max": -1.6,
   "comparacion": {
    "tipo": "desde",
-   "fecha": "23 de noviembre de 2026",
-   "valor": 33.2,
-   "dias": 2
+   "fecha": "25 de noviembre de 2026",
+   "valor": 31.7,
+   "dias": 1
   }
  },
  "ultimos30": {
   "dias": [
-   {
-    "f": "27/10",
-    "dia": 27,
-    "dsem": 1,
-    "max": 25.4,
-    "min": 13.2,
-    "nmax": 27.9,
-    "nmin": 11.3,
-    "clase": "normal"
-   },
    {
     "f": "28/10",
     "dia": 28,
@@ -315,9 +305,19 @@
     "nmax": 31.6,
     "nmin": 15.0,
     "clase": "normal"
+   },
+   {
+    "f": "26/11",
+    "dia": 26,
+    "dsem": 3,
+    "max": 30.0,
+    "min": 15.5,
+    "nmax": 31.6,
+    "nmin": 15.0,
+    "clase": "normal"
    }
   ],
-  "anom_max": 0.8,
+  "anom_max": 0.9,
   "cuenta": {
    "caluroso": 8,
    "normal": 16,
@@ -329,20 +329,20 @@
   "mes": "noviembre",
   "anio": 2026,
   "anio_pasado": 2025,
-  "dias": 13,
+  "dias": 14,
   "desde_dia": 13,
-  "hasta_dia": 25,
+  "hasta_dia": 26,
   "este": {
-   "prom_max": 33.1,
-   "prom_min": 17.5,
+   "prom_max": 32.9,
+   "prom_min": 17.4,
    "calor35": 3,
    "max": 40.2
   },
   "pasado": {
-   "prom_max": 34.2,
-   "prom_min": 16.5,
-   "calor35": 5,
-   "max": 38.0
+   "prom_max": 34.6,
+   "prom_min": 16.8,
+   "calor35": 6,
+   "max": 39.4
   }
  },
  "curiosos": [
@@ -455,19 +455,19 @@
   {
    "mes": "noviembre",
    "anio": 2026,
-   "prom_max": 32.1,
+   "prom_max": 32.0,
    "normal_max": 31.6,
-   "anom": 0.5,
+   "anom": 0.4,
    "clase": "normal",
    "calor35": 5,
    "heladas": 0,
-   "dias": 25
+   "dias": 26
   }
  ],
  "conteos": {
-  "calor35": 44,
+  "calor35": 43,
   "calor40": 3,
-  "noches20": 46,
+  "noches20": 45,
   "heladas": 29,
   "racha35": 7,
   "dias_con_dato": 339
